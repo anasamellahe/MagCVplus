@@ -1,0 +1,229 @@
+<!-- Mustache-like template for resume rendering -->
+```html
+<!-- Mustache-like template for resume rendering (French-first, with English fallbacks) -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>{{#informations_personnelles}}{{nom_complet}}{{/informations_personnelles}}{{^informations_personnelles}}{{personal_information.full_name}}{{/informations_personnelles}} – CV</title>
+  <style>
+  :root { --bg:transparent; --panel:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#2563eb; --chip-bg:#eef2ff; --chip-ink:#3730a3; }
+  html, body { background: transparent !important; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif; color:var(--ink); }
+  .mg-logo { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: 140px; height: auto; z-index: 9999; pointer-events: none; }
+  @media print { .mg-logo { top: 12px; width: 120px; } @page { margin: 12mm; } }
+  .page { max-width:900px; margin:40px auto; padding:0 20px; }
+  .resume { background:var(--panel); border:1px solid var(--line); border-radius:20px; box-shadow:0 10px 30px rgba(2,6,23,.06); overflow:hidden; }
+  header { display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; padding:32px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:32px; }
+  .subtitle { color:var(--muted); margin-top:6px; }
+  .contacts { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
+  .section { padding:26px 32px; border-top:1px solid var(--line); }
+  .section h2 { margin:0 0 14px; font-size:16px; color:var(--muted); text-transform:uppercase; }
+  .summary { line-height:1.6; }
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .item { display:grid; gap:6px; }
+  .role-line { display:flex; gap:8px; align-items:baseline; }
+  .role { font-weight:600; }
+  .org { color:var(--muted); }
+  .meta { font-size:13px; color:var(--muted); }
+  .bullets { margin:6px 0 0 18px; }
+  .chip { background:var(--chip-bg); color:var(--chip-ink); border-radius:999px; padding:6px 10px; }
+  </style>
+</head>
+<body>
+  <img class="mg-logo" src="/Mag-Management-logo.png" alt="Mag Management" />
+  <div class="page">
+    <article class="resume">
+      <header>
+        <div>
+          {{#informations_personnelles}}
+            <h1>{{nom_complet}}</h1>
+            <div class="subtitle">{{poste}}</div>
+          {{/informations_personnelles}}
+          {{^informations_personnelles}}
+            <h1>{{personal_information.full_name}}</h1>
+            <!-- Mustache-like template for resume rendering (French-first, with English fallbacks) -->
+            <!doctype html>
+            <html lang="fr">
+            <head>
+              <meta charset="utf-8" />
+              <title>{{#informations_personnelles}}{{nom_complet}}{{/informations_personnelles}}{{^informations_personnelles}}{{personal_information.full_name}}{{/informations_personnelles}} – CV</title>
+              <style>
+              :root { --bg:transparent; --panel:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --accent:#2563eb; --chip-bg:#eef2ff; --chip-ink:#3730a3; }
+              html, body { background: transparent !important; }
+              body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif; color:var(--ink); }
+              .mg-logo { position: fixed; top: 18px; left: 50%; transform: translateX(-50%); width: 140px; height: auto; z-index: 9999; pointer-events: none; }
+              @media print { .mg-logo { top: 12px; width: 120px; } @page { margin: 12mm; } }
+              .page { max-width:900px; margin:40px auto; padding:0 20px; }
+              .resume { background:var(--panel); border:1px solid var(--line); border-radius:20px; box-shadow:0 10px 30px rgba(2,6,23,.06); overflow:hidden; }
+              header { display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; padding:32px; border-bottom:1px solid var(--line); }
+              h1 { margin:0; font-size:32px; }
+              .subtitle { color:var(--muted); margin-top:6px; }
+              .contacts { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
+              .section { padding:26px 32px; border-top:1px solid var(--line); }
+              .section h2 { margin:0 0 14px; font-size:16px; color:var(--muted); text-transform:uppercase; }
+              .summary { line-height:1.6; }
+              .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+              .item { display:grid; gap:6px; }
+              .role-line { display:flex; gap:8px; align-items:baseline; }
+              .role { font-weight:600; }
+              .org { color:var(--muted); }
+              .meta { font-size:13px; color:var(--muted); }
+              .bullets { margin:6px 0 0 18px; }
+              .chip { background:var(--chip-bg); color:var(--chip-ink); border-radius:999px; padding:6px 10px; }
+              </style>
+            </head>
+            <body>
+              <img class="mg-logo" src="/Mag-Management-logo.png" alt="Mag Management" />
+              <div class="page">
+                <article class="resume">
+                  <header>
+                    <div>
+                      {{#informations_personnelles}}
+                        <h1>{{nom_complet}}</h1>
+                        <div class="subtitle">{{poste}}</div>
+                      {{/informations_personnelles}}
+                      {{^informations_personnelles}}
+                        <h1>{{personal_information.full_name}}</h1>
+                        <div class="subtitle">{{personal_information.job_title}}</div>
+                      {{/informations_personnelles}}
+                    </div>
+                    <div class="contacts">
+                      {{#informations_personnelles}}
+                        {{#lieu}}<span>{{lieu}}</span>{{/lieu}}
+                        {{#email}}<a href="mailto:{{email}}">{{email}}</a>{{/email}}
+                        {{#telephone}}<span>{{telephone}}</span>{{/telephone}}
+                        {{#linkedin}}<a href="{{linkedin}}">LinkedIn</a>{{/linkedin}}
+                        {{#portfolio}}<a href="{{portfolio}}">Portfolio</a>{{/portfolio}}
+                      {{/informations_personnelles}}
+                      {{^informations_personnelles}}
+                        <span>{{personal_information.location}}</span>
+                        {{#personal_information.email}}<a href="mailto:{{personal_information.email}}">{{personal_information.email}}</a>{{/personal_information.email}}
+                        {{#personal_information.phone}}<span>{{personal_information.phone}}</span>{{/personal_information.phone}}
+                        {{#personal_information.linkedin}}<a href="{{personal_information.linkedin}}">LinkedIn</a>{{/personal_information.linkedin}}
+                        {{#personal_information.portfolio}}<a href="{{personal_information.portfolio}}">Portfolio</a>{{/personal_information.portfolio}}
+                      {{/informations_personnelles}}
+                    </div>
+                  </header>
+
+                  <section class="section">
+                    <h2>Résumé professionnel</h2>
+                    {{#resume}}<p class="summary">{{resume}}</p>{{/resume}}
+                    {{^resume}}{{#summary}}<p class="summary">{{summary}}</p>{{/summary}}{{/resume}}
+                  </section>
+
+                  <section class="section">
+                    <h2>Expériences professionnelles</h2>
+                    {{#experiences_professionnelles}}
+                      <div class="item">
+                        <div class="role-line"><div class="role">{{intitule_poste}}</div><div class="org">@ {{entreprise}}</div></div>
+                        <div class="meta">{{lieu}} · {{date_debut}} – {{date_fin}}</div>
+                        <ul class="bullets">{{#responsabilites}}<li>{{.}}</li>{{/responsabilites}}</ul>
+                      </div>
+                    {{/experiences_professionnelles}}
+                    {{^experiences_professionnelles}}
+                      {{#professional_experience}}
+                        <div class="item">
+                          <div class="role-line"><div class="role">{{job_title}}</div><div class="org">@ {{company}}</div></div>
+                          <div class="meta">{{location}} · {{start_date}} – {{end_date}}</div>
+                          <ul class="bullets">{{#responsibilities}}<li>{{.}}</li>{{/responsibilities}}</ul>
+                        </div>
+                      {{/professional_experience}}
+                    {{/experiences_professionnelles}}
+                  </section>
+
+                  <section class="section">
+                    <h2>Formations</h2>
+                    <div class="grid-2">
+                      {{#formations}}
+                        <div class="item">
+                          <div class="role-line"><div class="role">{{diplome}}</div><div class="org">@ {{ecole}}</div></div>
+                          <div class="meta">{{date_debut}} – {{date_fin}}</div>
+                          {{#details}}<div class="muted">{{details}}</div>{{/details}}
+                        </div>
+                      {{/formations}}
+                      {{^formations}}
+                        {{#education}}
+                          <div class="item">
+                            <div class="role-line"><div class="role">{{degree}}</div><div class="org">@ {{school}}</div></div>
+                            <div class="meta">{{start_date}} – {{end_date}}</div>
+                            {{#details}}<div class="muted">{{details}}</div>{{/details}}
+                          </div>
+                        {{/education}}
+                      {{/formations}}
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Compétences</h2>
+                    <div class="chips">{{#competences}}<span class="chip">{{.}}</span>{{/competences}}{{^competences}}{{#skills}}<span class="chip">{{.}}</span>{{/skills}}{{/competences}}</div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Projets</h2>
+                    <div class="grid-2">
+                      {{#projets}}
+                        <div class="item"><div class="role-line"><div class="role">{{titre}}</div></div><p>{{description}}</p></div>
+                      {{/projets}}
+                      {{^projets}}
+                        {{#projects}}
+                          <div class="item"><div class="role-line"><div class="role">{{title}}</div></div><p>{{description}}</p></div>
+                        {{/projects}}
+                      {{/projets}}
+                    </div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Certifications</h2>
+                    <div class="grid-2">{{#certifications}}<div class="chip">{{.}}</div>{{/certifications}}</div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Langues</h2>
+                    <div class="chips">{{#langues}}<span class="chip">{{.}}</span>{{/langues}}{{^langues}}{{#languages}}<span class="chip">{{.}}</span>{{/languages}}{{/langues}}</div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Récompenses & Activités</h2>
+                    <div class="grid-2">{{#recompenses_activites}}<div class="item"><div class="role">{{.}}</div></div>{{/recompenses_activites}}{{^recompenses_activites}}{{#awards_activities}}<div class="item"><div class="role">{{.}}</div></div>{{/awards_activities}}{{/recompenses_activites}}</div>
+                  </section>
+
+                  <section class="section">
+                    <h2>Rapport d'évaluation</h2>
+                    {{#rapport}}
+                      {{#resume}}<p class="summary">{{resume}}</p>{{/resume}}
+                      {{#forces}}<h3>Forces</h3><ul class="bullets">{{#forces}}<li>{{.}}</li>{{/forces}}</ul>{{/forces}}
+                      {{#lacunes}}<h3>Lacunes</h3><ul class="bullets">{{#lacunes}}<li>{{.}}</li>{{/lacunes}}</ul>{{/lacunes}}
+                      {{#roles_recommandes}}<h3>Rôles recommandés</h3>
+                        {{#roles_recommandes}}
+                          <div class="item">
+                            <div class="role">{{titre}}</div>
+                            <div class="meta">{{seniorite}} · score: {{score_de_compatibilite}}</div>
+                            {{#pourquoi}}<div class="muted">{{pourquoi}}</div>{{/pourquoi}}
+                          </div>
+                        {{/roles_recommandes}}
+                      {{/roles_recommandes}}
+                    {{/rapport}}
+                    {{^rapport}}
+                      {{#report}}
+                        {{#summary}}<p class="summary">{{summary}}</p>{{/summary}}
+                        {{#strengths}}<h3>Forces</h3><ul class="bullets">{{#strengths}}<li>{{.}}</li>{{/strengths}}</ul>{{/strengths}}
+                        {{#gaps}}<h3>Lacunes</h3><ul class="bullets">{{#gaps}}<li>{{.}}</li>{{/gaps}}</ul>{{/gaps}}
+                        {{#recommended_roles}}<h3>Rôles recommandés</h3>
+                          {{#recommended_roles}}
+                            <div class="item">
+                              <div class="role">{{title}}</div>
+                              <div class="meta">{{seniority}} · score: {{match_score}}</div>
+                              {{#why}}<div class="muted">{{why}}</div>{{/why}}
+                            </div>
+                          {{/recommended_roles}}
+                        {{/recommended_roles}}
+                      {{/report}}
+                    {{/rapport}}
+                  </section>
+
+                </article>
+              </div>
+            </body>
+            </html>
