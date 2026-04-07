@@ -23,7 +23,3 @@ Requirements: Node.js and npm/yarn installed.
 
 Build and deploy the app with your usual static hosting provider. Server-side functions (Supabase Edge Functions) must be deployed separately.
 
-## Notes
-
-- The repository previously included workspace metadata from a third-party tool; those references have been removed.
-- If you plan to deploy the Supabase functions, ensure you set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in your deployment environment.
